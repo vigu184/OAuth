@@ -16,15 +16,17 @@ class Login extends React.Component {
   render() {
     return (
       <>
-        <Paper
+      <Grid container justify="center">
+      <Paper
           component={Grid}
           item
           container
           alignContent="center"
           direction="column"
           md={4}
+          style={{ paddingTop: 100, paddingBottom:20}}
         >
-          <div style={{ paddingTop: 50, paddingBottom: 50 }}>
+          <div>
             <form noValidate autoComplete="off" onSubmit={this.handleSubmit}>
               <Grid>
                 <TextField
@@ -33,19 +35,23 @@ class Login extends React.Component {
                   variant="filled"
                 />
               </Grid>
-              <Grid>
+              <Grid style={{paddingTop:10}}>
                 <TextField
                   id="filled-basic"
                   label="Enter Password"
                   variant="filled"
                 />
               </Grid>
-            </form>
-            <Button color="primary" alignContent="center">
+            <Grid style={{paddingTop:10}} container justify="center">
+            <Button color="primary" variant="contained" type="submit">
               Submit
             </Button>
+            </Grid>
+            </form>
+            
           </div>
         </Paper>
+      </Grid>
       </>
     );
   }
