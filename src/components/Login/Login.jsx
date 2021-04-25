@@ -71,7 +71,7 @@ class Login extends React.Component {
           console.log("Password Must have atleast 1 Special character");
           this.setState({
             passwordStrength:
-              "Add special characters to make the best possible!",
+              "Password Must have atleast 1 Special character"
           });
         } else {
           this.setState({ passwordStrength: "Strong Password" });
@@ -92,7 +92,7 @@ class Login extends React.Component {
   render() {
     return (
       <>
-        <Grid container justify="center">
+        <Grid container justify="center" style={{paddingTop:200}}>
           <Paper
             component={Grid}
             item
@@ -101,10 +101,9 @@ class Login extends React.Component {
             direction="column"
             alignContent="center"
             md={4}
-            style={{ paddingTop: 100, paddingBottom: 20 }}
             className={darkTheme}
           >
-            <div>
+            <div style={{paddingTop:20, paddingBottom:20}}>
               <form
                 onSubmit={this.handleSubmit}
                 style={{
