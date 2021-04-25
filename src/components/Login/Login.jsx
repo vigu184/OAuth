@@ -1,6 +1,14 @@
 import React from "react";
 import { Button, TextField } from "@material-ui/core";
 import { Grid, Paper } from "@material-ui/core";
+import {createMuiTheme} from "@material-ui/core/styles";
+
+const darkTheme = createMuiTheme({
+  palette: {
+    type: 'dark',
+  },
+});
+
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -11,8 +19,15 @@ class Login extends React.Component {
   }
 
   handleSubmit = () => {
-    console.log("Submit zhala");
+    console.log("");
   };
+
+  onChange = (event) => {
+    const caller = event.target.name;
+    const value = event.target.value;
+    this.setState({[caller]: value,});
+  };
+
   render() {
     return (
       <>
@@ -25,21 +40,28 @@ class Login extends React.Component {
           direction="column"
           md={4}
           style={{ paddingTop: 100, paddingBottom:20}}
+          className={darkTheme}
         >
+
           <div>
             <form noValidate autoComplete="off" onSubmit={this.handleSubmit}>
               <Grid>
                 <TextField
-                  id="filled-basic"
+                  name="username"
                   label="Enter User Name"
                   variant="filled"
+                  value={this.state.username}
+                  onChange={this.onChange}
                 />
               </Grid>
               <Grid style={{paddingTop:10}}>
                 <TextField
-                  id="filled-basic"
+                  name="password"
                   label="Enter Password"
+                  type="password"
                   variant="filled"
+                  value={this.state.password}
+                  onChange={this.onChange}
                 />
               </Grid>
             <Grid style={{paddingTop:10}} container justify="center">
