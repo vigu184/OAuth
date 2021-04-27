@@ -1,13 +1,6 @@
 import React from "react";
 import { Button, TextField } from "@material-ui/core";
 import { Grid, Paper } from "@material-ui/core";
-import { createMuiTheme } from "@material-ui/core/styles";
-
-const darkTheme = createMuiTheme({
-  palette: {
-    type: "dark",
-  },
-});
 
 const EmailRegex = RegExp(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,10}$/i);
 const InvalidPasswordRegex = RegExp(
@@ -38,7 +31,6 @@ class Login extends React.Component {
     switch (name) {
       case "email":
         errors.email = EmailRegex.test(value) ? "" : "Invalid Email";
-        console.log(errors);
         break;
       case "password":
         errors.password = InvalidPasswordRegex.test(value)
@@ -47,36 +39,29 @@ class Login extends React.Component {
         if (value === "") {
           this.setState({ passwordStrength: "Password cannot be empty" });
         } else if (value.length < 8) {
-          console.log("Password Must have atleast 8 characters");
           alert(
             "Password must contain:\nMinimum 8 characters\n1 Uppercase Letter\n1 Lowercase letter\n1 number\n1 Special character"
           );
         } else if (!NumberRegex.test(value)) {
-          console.log("Password Must have atleast one number");
           this.setState({
             passwordStrength:
               "Password must have atleast 1 numerical character",
           });
         } else if (!UppercaseRegex.test(value)) {
-          console.log("Password Must have atleast one Uppercase character");
           this.setState({
             passwordStrength: "Password must have atleast 1 Uppercase letter",
           });
         } else if (!LowerCaseRegex.test(value)) {
-          console.log("Password Must have atleast one lowercase character");
           this.setState({
             passwordStrength: "Password must have atleast 1 Lowercase letter",
           });
         } else if (!SpecialCharacter.test(value)) {
-          console.log("Password Must have atleast 1 Special character");
           this.setState({
-            passwordStrength:
-              "Password Must have atleast 1 Special character"
+            passwordStrength: "Password Must have atleast 1 Special character",
           });
         } else {
           this.setState({ passwordStrength: "Strong Password" });
         }
-        console.log(errors);
         break;
       default:
         break;
@@ -92,7 +77,7 @@ class Login extends React.Component {
   render() {
     return (
       <>
-        <Grid container justify="center" style={{paddingTop:200}}>
+        <Grid container justify="center" style={{ paddingTop: 200 }}>
           <Paper
             component={Grid}
             item
@@ -101,9 +86,9 @@ class Login extends React.Component {
             direction="column"
             alignContent="center"
             md={4}
-            className={darkTheme}
+            style={{ paddingTop: 100, paddingBottom: 20 }}
           >
-            <div style={{paddingTop:20, paddingBottom:20}}>
+            <div style={{ paddingTop: 20, paddingBottom: 20 }}>
               <form
                 onSubmit={this.handleSubmit}
                 style={{
@@ -132,7 +117,6 @@ class Login extends React.Component {
                     onBlur={this.validate}
                   />
                 </Grid>
-                <Paper component={Grid}>{this.state.passwordStrength}</Paper>
                 <Grid style={{ paddingTop: 10 }} container justify="center">
                   <Button
                     color="primary"
