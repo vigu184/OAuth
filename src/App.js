@@ -1,6 +1,4 @@
-//import logo from "./logo.svg";
 import React from "react";
-//import ReactDOM from "react-dom";
 import Signup from "./components/Signup/Signup";
 import Navbar from "./components/Navigationbar/Navbar";
 import "./App.css";
@@ -10,7 +8,7 @@ class App extends React.Component {
     return (
       <>
         <Navbar></Navbar>
-          <Signup></Signup>
+        <Signup></Signup>
       </>
     );
   }

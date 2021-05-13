@@ -5,10 +5,11 @@ class Navbar extends React.Component {
     return (
       <AppBar>
         <Toolbar>
-          <Typography>Application Based out of Rendumness</Typography>
+          <Typography>Application Based out of Rendumness!!</Typography>
         </Toolbar>
       </AppBar>
     );
   }
 }
+
 export default Navbar;
