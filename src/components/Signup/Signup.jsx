@@ -132,6 +132,7 @@ class Signup extends React.Component {
                   >
                     Submit
                   </Button>
+                  {this.setState}
                 </Grid>
               </form>
             </div>
